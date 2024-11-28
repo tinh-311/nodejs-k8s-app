@@ -1,0 +1,6 @@
+spec:
+  containers:
+    - name: nodejs-k8s-app
+      image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+      ports:
+        - containerPort: 3000

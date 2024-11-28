@@ -10,5 +10,4 @@ COPY src/ .
 
 EXPOSE 3000
 
-# Chạy ứng dụng Node.js
 CMD ["node", "app.js"]
