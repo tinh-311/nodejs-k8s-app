@@ -1,15 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "nodejs-k8s-app-chart.fullname" . }}
-  labels:
-    {{- include "nodejs-k8s-app-chart.labels" . | nindent 4 }}
+  name: nodejs-k8s-service
 spec:
-  type: {{ .Values.service.type }}
-  ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
   selector:
-    {{- include "nodejs-k8s-app-chart.selectorLabels" . | nindent 4 }}
+    app: nodejs-k8s-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: NodePort
