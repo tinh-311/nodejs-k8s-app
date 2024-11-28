@@ -7,6 +7,6 @@ spec:
     app: nodejs-k8s-app
   ports:
     - protocol: TCP
-      port: { { .values.service.port } }
+      port: 80
       targetPort: 3000
   type: NodePort
